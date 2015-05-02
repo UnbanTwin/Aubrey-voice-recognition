@@ -1,21 +1,23 @@
-// check if speech recognition is supported
+
+function speak (phrase) {
+    var worte = new SpeechSynthesisUtterance(phrase);
+    worte.lang = "en-GB";
+    window.speechSynthesis.speak(worte);
+}
+
 if (annyang) {
     annyang.setLanguage('en-GB');
 
     // Define your commands
     var commands = {
         'hello (who are you)': function() {
-            var worte = new SpeechSynthesisUtterance("Hello, I am Aubrey");
-            worte.lang = "en-GB";
-            window.speechSynthesis.speak(worte);
+            speak('hello, I am aubrey')
         }
     };
 
     var commands2 = {
         '(aubrey) Who made you': function() {
-            var worte = new SpeechSynthesisUtterance("Sam bolton");
-            worte.lang = "en-GB";
-            window.speechSynthesis.speak(worte);
+            speak('sam bolton')
         }
     };
 
