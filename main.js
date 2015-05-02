@@ -31,9 +31,7 @@ if (annyang) {
 }
 
 function On() {
-    var worte = new SpeechSynthesisUtterance("Now listening");
-    worte.lang = "en-GB";
-    window.speechSynthesis.speak(worte);
+    speak("now listening")  
 }
 
 var commands = {
