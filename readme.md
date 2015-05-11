@@ -7,4 +7,4 @@
 
 
 
-note: you need to be runny a web server to run aubrey, I recomened simple: npm install simple
+note: you need to be runny a web server to run aubrey, I recomened simple: npm install simple -g
