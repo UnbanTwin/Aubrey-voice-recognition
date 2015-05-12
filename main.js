@@ -16,13 +16,17 @@ var actions = {
     },
     google: function (term) {
         window.location.href = 'https://www.google.com/#q='+term;
-    }
+    },
+    d20: function () {
+      var d20 = Math.floor(Math.random() * 20);
+      speak(d20);
+    },
 }
-function On() {
+function on() {
     speak("now listening")
 }
 
-var d20 = Math.floor(Math.random() * 20)
+
 
 // bind all of our spoken commands to the actions
 if (annyang) {
@@ -38,7 +42,8 @@ if (annyang) {
         },
         'youtube *term': actions.youtube,
         'search *term': actions.search,
-        'google *term': actions.google
+        'google *term': actions.google,
+        'roll a d20': actions.d20,
     };
 
     // take our list of commands and stick them all in
