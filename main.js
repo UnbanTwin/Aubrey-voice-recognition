@@ -5,58 +5,37 @@ function speak (phrase) {
     window.speechSynthesis.speak(worte);
 }
 
+// Just a list of functions that anyone can call
+// you can call these in the console by typing actions.YourFunctioName()
+var actions = {
+    youtube: function (term) {
+        window.location.href = 'https://www.youtube.com/results?search_query='+term;
+    },
+    search: function (term) {
+        // window.location go to google?
+    },
+    google: function (term) {
+        window.location.href = 'https://www.google.com/#q='+term;
+    }
+}
+
+// bind all of our spoken commands to the actions
 if (annyang) {
     annyang.setLanguage('en-GB');
 
-    // Define your commands
+    // Define the triggers for the commands
     var commands = {
         'hello (who are you)': function() {
-            speak('hello, I am aubrey')
-        }
-    };
-
-    var commands2 = {
+            speak('hello, I am aubrey');
+        },
         '(aubrey) Who made you': function() {
-            speak('sam bolton')
-        }
+            speak('sam bolton');
+        },
+        'youtube *term': actions.youtube,
+        'search *term': actions.search,
+        'google $term': actions.google
     };
 
-    var performSearch = function(term) {
-       // Code to perform a search for the said 'term'
-    }
-    // Use addCommands API to add commands to annyang
+    // take our list of commands and stick them all in
     annyang.addCommands(commands);
-    annyang.addCommands(commands2);
-    // Start listening. You call this right here or do it later on some event like button click
 }
-
-function On() {
-    speak("now listening")  
-}
-
-var commands = {
-// saying 'search chrome bookmarks' will call 'performSearch' function with 'chrome bookmarks' as parameter
-    'search *term': performSearch,
-};
-
-var performSearch = function(term) {
-   // Code to perform a search for the said 'term'
-}
-
-if (annyang) {
-    var commands3 = {
-        'google *term': function(term) {
-            window.location.href = 'https://www.google.com/#q='+term
-        }
-    }
-}
-annyang.addCommands(commands3);
-
-if (annyang) {
-    var commands8 = {
-        'youtube *term': function(term) {
-            window.location.href = 'https://www.youtube.com/results?search_query='+term
-        }
-    }
-}
-annyang.addCommands(commands8);
