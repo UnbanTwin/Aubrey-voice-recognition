@@ -21,6 +21,9 @@ var actions = {
 function On() {
     speak("now listening")
 }
+
+var d20 = Math.floor(Math.random() * 20)
+
 // bind all of our spoken commands to the actions
 if (annyang) {
     annyang.setLanguage('en-GB');
@@ -35,7 +38,7 @@ if (annyang) {
         },
         'youtube *term': actions.youtube,
         'search *term': actions.search,
-        'google $term': actions.google
+        'google *term': actions.google
     };
 
     // take our list of commands and stick them all in
