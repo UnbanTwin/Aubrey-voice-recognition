@@ -18,7 +18,9 @@ var actions = {
         window.location.href = 'https://www.google.com/#q='+term;
     }
 }
-
+function On() {
+    speak("now listening")
+}
 // bind all of our spoken commands to the actions
 if (annyang) {
     annyang.setLanguage('en-GB');
@@ -31,12 +33,9 @@ if (annyang) {
         '(aubrey) Who made you': function() {
             speak('sam bolton');
         },
-
         'youtube *term': actions.youtube,
         'search *term': actions.search,
-        'google *term': actions.google,
-
-
+        'google $term': actions.google
     };
 
     // take our list of commands and stick them all in
