@@ -2,5 +2,9 @@
 
 ### Goals for the project
 - Weather
-- charictar sheets and dice rolls
+- character sheets
 - and more
+- more dice
+
+###Complete stuff:
+- d20 dice roll done.
