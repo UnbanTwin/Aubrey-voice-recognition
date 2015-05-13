@@ -21,6 +21,11 @@ var actions = {
       var d20 = Math.floor(Math.random() * 20);
       speak(d20);
     },
+
+    d6: function () {
+      var d6 = Math.floor(Math.random() * 6);
+      speak(d6);
+    },
 }
 function on() {
     speak("now listening")
@@ -44,6 +49,7 @@ if (annyang) {
         'search *term': actions.search,
         'google *term': actions.google,
         'roll a d20': actions.d20,
+        'roll a d6': actions.d6,
     };
 
     // take our list of commands and stick them all in

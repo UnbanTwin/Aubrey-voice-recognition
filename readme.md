@@ -8,3 +8,4 @@
 
 ###Complete stuff:
 - d20 dice roll done.
+- d6 dice roll done
