@@ -26,6 +26,15 @@ var actions = {
       var d6 = Math.floor(Math.random() * 6);
       speak(d6);
     },
+  wolfram: function(term) {
+    $.get("http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
+        speak(wolfram__);
+        };
+    //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
+    //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
+    //speak(wolfram_);
+  },
+
 }
 function on() {
     speak("now listening")
@@ -50,6 +59,7 @@ if (annyang) {
         'google *term': actions.google,
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
+        'What is *term': actions.wolfram,
     };
 
     // take our list of commands and stick them all in
