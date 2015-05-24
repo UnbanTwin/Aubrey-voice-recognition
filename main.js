@@ -25,6 +25,7 @@ var actions = {
     d6: function () {
       var d6 = Math.floor(Math.random() * 6);
       speak(d6);
+      document.getElementById("#resultplace").innerHTML = d6;
     },
   wolfram: function(term) {
     $.get("http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
@@ -49,10 +50,12 @@ if (annyang) {
     // Define the triggers for the commands
     var commands = {
         'hello (who are you)': function() {
-            speak('hello, I am aubrey');
+            speak('hello,');
+            document.getElementById("#resultplace").innerHTML = "hello";
         },
         '(aubrey) Who made you': function() {
             speak('sam bolton');
+            document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
         'youtube *term': actions.youtube,
         'search *term': actions.search,
