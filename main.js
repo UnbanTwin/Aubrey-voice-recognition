@@ -65,3 +65,10 @@ if (annyang) {
     // take our list of commands and stick them all in
     annyang.addCommands(commands);
 }
+
+
+if(document.forms['frm'].inputsay.value == "hello")
+    {
+      speak("hello, I am aubrey")
+  
+    }
