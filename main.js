@@ -4,7 +4,7 @@ function speak (phrase) {
     worte.lang = "en-GB";
     window.speechSynthesis.speak(worte);
 }
-
+annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean'); });
 // Just a list of functions that anyone can call
 // you can call these in the console by typing actions.YourFunctioName()
 var actions = {
@@ -65,10 +65,3 @@ if (annyang) {
     // take our list of commands and stick them all in
     annyang.addCommands(commands);
 }
-
-
-if(document.forms['frm'].inputsay.value == "hello")
-    {
-      speak("hello, I am aubrey")
-  
-    }
