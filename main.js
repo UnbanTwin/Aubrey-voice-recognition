@@ -10,7 +10,7 @@ function speak (phrase) {
     worte.lang = "en-GB";
     window.speechSynthesis.speak(worte);
 }
-annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean'); });
+annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean');  document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
 // Just a list of functions that anyone can call
 // you can call these in the console by typing actions.YourFunctioName()
 var actions = {
