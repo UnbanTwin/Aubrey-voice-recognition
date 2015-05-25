@@ -1,3 +1,4 @@
+//change this if we have longer commands
 annyang.start({continuous: false });
 
 function save_data(){
