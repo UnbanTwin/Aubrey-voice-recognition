@@ -1,5 +1,8 @@
 # Aubrey Voice Recognition
 
+###About
+Aubrey is a voice recognizing program (hopefully soon to be an AI ) inspired by J.A.R.V.I.S from iron man!
+
 ### Goals for the project
 - Weather
 - character sheets
