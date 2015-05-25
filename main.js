@@ -73,7 +73,7 @@ if (annyang) {
             speak('hello ');
             document.getElementById("#resultplace").innerHTML = "hello ";
         },
-        '(aubrey) Who made you': function() {
+        '(aubrey) (Who made you)(Who created you)': function() {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
