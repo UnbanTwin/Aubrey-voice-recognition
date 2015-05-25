@@ -20,6 +20,7 @@ var actions = {
     d20: function () {
       var d20 = Math.floor(Math.random() * 20);
       speak(d20);
+      document.getElementById("#resultplace").innerHTML = d20;
     },
 
     d6: function () {
