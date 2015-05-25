@@ -69,7 +69,7 @@ if (annyang) {
 
     // Define the triggers for the commands
     var commands = {
-        'hello (who are you)': function() {
+        '(hello)(hi)(hey)': function() {
             speak('hello ');
             document.getElementById("#resultplace").innerHTML = "hello ";
         },
