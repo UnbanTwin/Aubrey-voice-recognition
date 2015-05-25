@@ -1,4 +1,4 @@
-annyang.start()
+annyang.start({continuous: false });
 
 function save_data(){
 var input = document.getElementById("fname");
