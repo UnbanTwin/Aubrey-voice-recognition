@@ -1,3 +1,5 @@
+annyang.start()
+
 function save_data(){
 var input = document.getElementById("fname");
 localStorage.setItem("fname", input.value);
