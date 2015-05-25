@@ -77,9 +77,9 @@ if (annyang) {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
-        'youtube *term': actions.youtube,
+        '(hey aubrey can you) (can you) youtube *term': actions.youtube,
         'search *term': actions.search,
-        'google *term': actions.google,
+        '(hey aubrey can you) (can you) google *term': actions.google,
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
         'What is *term': actions.wolfram,
