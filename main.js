@@ -1,3 +1,9 @@
+function save_data(){
+var input = document.getElementById("fname");
+localStorage.setItem("fname", input.value);
+}
+var firstname = localStorage.getItem("fname");
+
 
 function speak (phrase) {
     var worte = new SpeechSynthesisUtterance(phrase);
@@ -8,12 +14,12 @@ annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mea
 // Just a list of functions that anyone can call
 // you can call these in the console by typing actions.YourFunctioName()
 var actions = {
+
     youtube: function (term) {
         window.location.href = 'https://www.youtube.com/results?search_query='+term;
     },
-    search: function (term) {
-        // window.location go to google?
-    },
+
+
     google: function (term) {
         window.location.href = 'https://www.google.com/#q='+term;
     },
@@ -29,15 +35,26 @@ var actions = {
       document.getElementById("#resultplace").innerHTML = d6;
     },
   wolfram: function(term) {
-    $.get("http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
+    $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
         speak(wolfram__);
         };
     //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
     //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
     //speak(wolfram_);
   },
+  weather: function (term) {
+    $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
+      speak(theweather.temp);
+
+
+
+
+
+  });
 
 }
+}
+
 function on() {
     speak("now listening")
 }
@@ -51,8 +68,8 @@ if (annyang) {
     // Define the triggers for the commands
     var commands = {
         'hello (who are you)': function() {
-            speak('hello,');
-            document.getElementById("#resultplace").innerHTML = "hello";
+            speak('hello ');
+            document.getElementById("#resultplace").innerHTML = "hello ";
         },
         '(aubrey) Who made you': function() {
             speak('sam bolton');
@@ -64,6 +81,7 @@ if (annyang) {
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
         'What is *term': actions.wolfram,
+        'what is the weather in *term': actions.weather,
     };
 
     // take our list of commands and stick them all in
