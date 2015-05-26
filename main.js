@@ -93,6 +93,13 @@ if (annyang) {
             speak('Ready, sir');
             document.getElementById("#resultplace").innerHTML = "Ready, sir";
         },
+        '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
+            annyang.pause();
+            annyang.removeCommands();
+            annyang.addCommands(commands2);
+            annyang.resume();
+          document.getElementById("#resultplace").innerHTML = "Paused";
+        },
 
         '(hey aubrey can you) (can you) youtube *term': actions.youtube,
         'search *term': actions.search,
@@ -102,8 +109,22 @@ if (annyang) {
         'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
-    };
 
+    };
+var commands2 = {
+  //this is for the pause function only!
+  '(wake up)(resume)(aubry wakeup)(start)': function() {
+    annyang.pause();
+    annyang.removeCommands();
+    annyang.addCommands(commands);
+    annyang.resume();
+    document.getElementById("#resultplace").innerHTML = "resumed";
+  }
+
+
+
+
+}
     // take our list of commands and stick them all in
     annyang.addCommands(commands);
 }
