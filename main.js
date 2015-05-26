@@ -96,7 +96,7 @@ if (annyang) {
 
         },
         '(thats good) (that is good)': function() {
-            speak('Ready, sir');
+            speak('good');
             document.getElementById("#resultplace").innerHTML = "good";
           },
         '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
