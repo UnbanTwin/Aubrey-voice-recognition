@@ -118,7 +118,7 @@ var commands2 = {
     annyang.removeCommands();
     annyang.addCommands(commands);
     annyang.resume();
-    document.getElementById("#resultplace").innerHTML = "resumed";
+    document.getElementById("#resultplace").innerHTML = "Resumed";
   }
 
 
