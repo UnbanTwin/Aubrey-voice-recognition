@@ -1,5 +1,5 @@
 //change this if we have longer commands
-annyang.start({continuous: false });
+annyang.start();
 
 function save_data(){
 var input = document.getElementById("fname");
