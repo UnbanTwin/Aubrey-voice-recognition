@@ -104,8 +104,7 @@ if (annyang) {
             annyang.removeCommands();
             annyang.addCommands(commands2);
             annyang.resume();
-            annyang. addCallback('resultNoMatch', function(){console.log("dont understand")});
-          document.getElementById("#resultplace").innerHTML = "Paused";
+            document.getElementById("#resultplace").innerHTML = "Paused";
         },
 
         '(hey aubrey can you) (can you) youtube *term': actions.youtube,
