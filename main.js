@@ -55,8 +55,19 @@ var actions = {
 
   });
 
+},
+howu: function () {
+  speak("I'm good");
+  document.getElementById("#resultplace").innerHTML = "I'm good, thank you";
+
+
+  },
+
+
+
 }
-}
+
+
 
 function on() {
     speak("now listening")
@@ -78,6 +89,7 @@ if (annyang) {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
+
         '(hey aubrey can you) (can you) youtube *term': actions.youtube,
         'search *term': actions.search,
         '(hey aubrey can you) (can you) google *term': actions.google,
@@ -85,6 +97,7 @@ if (annyang) {
         'roll a d6': actions.d6,
         'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
+        '(How are you) (you good) (are you alright)': actions.howu,
     };
 
     // take our list of commands and stick them all in
