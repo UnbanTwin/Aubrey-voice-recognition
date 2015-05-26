@@ -7,7 +7,7 @@ localStorage.setItem("fname", input.value);
 }
 var firstname = localStorage.getItem("fname");
 
-annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean');  document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
+annyang.addCallback('resultNoMatch', function(){speak('I dont know what you mean');  document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
 function speak (phrase) {
     var worte = new SpeechSynthesisUtterance(phrase);
     worte.lang = "en-GB";
