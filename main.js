@@ -92,7 +92,12 @@ if (annyang) {
         '(hey aubrey)(aubrey)': function() {
             speak('Ready, sir');
             document.getElementById("#resultplace").innerHTML = "Ready, sir";
+
         },
+        '(thats good) (that is good)': function() {
+            speak('Ready, sir');
+            document.getElementById("#resultplace").innerHTML = "good;
+          },
         '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
             annyang.pause();
             annyang.removeCommands();
