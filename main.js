@@ -89,6 +89,10 @@ if (annyang) {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
+        '(hey aubrey)(aubrey)': function() {
+            speak('Ready, sir');
+            document.getElementById("#resultplace").innerHTML = "Ready, sir";
+        },
 
         '(hey aubrey can you) (can you) youtube *term': actions.youtube,
         'search *term': actions.search,
