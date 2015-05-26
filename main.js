@@ -7,7 +7,7 @@ localStorage.setItem("fname", input.value);
 }
 var firstname = localStorage.getItem("fname");
 
-
+annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean');  document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
 function speak (phrase) {
     var worte = new SpeechSynthesisUtterance(phrase);
     worte.lang = "en-GB";
@@ -85,7 +85,7 @@ if (annyang) {
             speak('hello ');
             document.getElementById("#resultplace").innerHTML = "hello ";
         },
-        annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean');  document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
+
         '(Who made you)(Who created you)': function() {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
