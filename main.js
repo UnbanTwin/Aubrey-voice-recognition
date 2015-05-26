@@ -1,5 +1,5 @@
 //change this if we have longer commands
-annyang.start();
+annyang.start({continuous: false});
 
 function save_data(){
 var input = document.getElementById("fname");
@@ -13,7 +13,7 @@ function speak (phrase) {
     worte.lang = "en-GB";
     window.speechSynthesis.speak(worte);
 }
-annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean');  document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
+
 // Just a list of functions that anyone can call
 // you can call these in the console by typing actions.YourFunctioName()
 var actions = {
@@ -85,6 +85,7 @@ if (annyang) {
             speak('hello ');
             document.getElementById("#resultplace").innerHTML = "hello ";
         },
+        annyang. addCallback('resultNoMatch', function(){speak('I dont know what you mean');  document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
         '(Who made you)(Who created you)': function() {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
@@ -96,13 +97,14 @@ if (annyang) {
         },
         '(thats good) (that is good)': function() {
             speak('Ready, sir');
-            document.getElementById("#resultplace").innerHTML = "good';
+            document.getElementById("#resultplace").innerHTML = "good";
           },
         '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
             annyang.pause();
             annyang.removeCommands();
             annyang.addCommands(commands2);
             annyang.resume();
+            annyang. addCallback('resultNoMatch', function(){});
           document.getElementById("#resultplace").innerHTML = "Paused";
         },
 
