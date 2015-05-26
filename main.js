@@ -90,7 +90,7 @@ if (annyang) {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
-        '(hey aubrey)(aubrey)': function() {
+        '(hey aubrey)(aubrey) (ok aubrey)': function() {
             speak('Ready, sir');
             document.getElementById("#resultplace").innerHTML = "Ready, sir";
 
@@ -104,7 +104,7 @@ if (annyang) {
             annyang.removeCommands();
             annyang.addCommands(commands2);
             annyang.resume();
-            annyang. addCallback('resultNoMatch', function(){});
+            annyang. addCallback('resultNoMatch', function(){console.log("dont understand")});
           document.getElementById("#resultplace").innerHTML = "Paused";
         },
 
