@@ -13,7 +13,7 @@ body {
 
 }
 
-.IO {
+.drag {
   background-color: black;
   height: 100px;
   width: 360px;
@@ -21,7 +21,7 @@ body {
   outline: #00FF00 dotted thick;
 
 }
-.commands {
+#commands {
   background-color: black;
   height: 250px;
   width: 360px;
@@ -46,23 +46,21 @@ body {
 
 <script type="text/javascript">
     $(function() {
-        $( ".IO" ).draggable();
+        $( ".drag" ).draggable();
 
     });
-    $(function() {
-        $( ".commands" ).draggable();
-    });
+
 
 
 </script>
 
-<div class="IO">
+<div class="drag">
 
 <h2>Output: <div id="#resultplace">Hello I am aubrey.</div></h2>
 <input></input><button onlick="" id="useributton">send</button>
 
 </div>
-<div class="commands">
+<div class="drag" id="commands">
 
 <h2>Commands:</h2>
 <ul>
