@@ -15,5 +15,4 @@ Aubrey is a voice recognizing web app (hopefully soon to be an AI ) inspired by 
 - basic social conversational interaction.
 
 
-
 Note: you will need a webserver to run Aubrey. I recommend the node module simple, npm install simple.
