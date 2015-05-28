@@ -2,8 +2,8 @@
 annyang.start({continuous: false});
 
 function save_data(){
-var input = document.getElementById("fname");
-localStorage.setItem("fname", input.value);
+    var input = document.getElementById("fname");
+    localStorage.setItem("fname", input.value);
 }
 var firstname = localStorage.getItem("fname");
 
@@ -27,41 +27,41 @@ var actions = {
         window.location.href = 'https://www.google.com/#q='+term;
     },
     d20: function () {
-      var d20 = Math.floor(Math.random() * 20);
-      speak(d20);
-      document.getElementById("#resultplace").innerHTML = d20;
+        var d20 = Math.floor(Math.random() * 20);
+        speak(d20);
+        document.getElementById("#resultplace").innerHTML = d20;
     },
 
     d6: function () {
-      var d6 = Math.floor(Math.random() * 6);
-      speak(d6);
-      document.getElementById("#resultplace").innerHTML = d6;
+        var d6 = Math.floor(Math.random() * 6);
+        speak(d6);
+        document.getElementById("#resultplace").innerHTML = d6;
     },
-  wolfram: function(term) {
-    $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
-        speak(wolfram__);
+    wolfram: function(term) {
+        $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
+            speak(wolfram__);
         };
-    //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
-    //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
-    //speak(wolfram_);
-  },
-  weather: function (term) {
-    $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
-      speak(theweather.temp);
+        //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
+        //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
+        //speak(wolfram_);
+    },
+    weather: function (term) {
+        $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
+            speak(theweather.temp);
 
 
 
 
 
-  });
+        });
 
-},
-howu: function () {
-  speak("I'm good");
-  document.getElementById("#resultplace").innerHTML = "I'm good, thank you";
+    },
+    howu: function () {
+        speak("I'm good");
+        document.getElementById("#resultplace").innerHTML = "I'm good, thank you";
 
 
-  },
+    },
 
 
 
@@ -98,7 +98,7 @@ if (annyang) {
         '(thats good) (that is good)': function() {
             speak('good');
             document.getElementById("#resultplace").innerHTML = "good";
-          },
+        },
         '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
             annyang.pause();
             annyang.removeCommands();
@@ -117,20 +117,20 @@ if (annyang) {
         '(How are you) (you good) (are you alright)': actions.howu,
 
     };
-var commands2 = {
-  //this is for the pause function only!
-  '(wake up)(resume)(aubry wakeup)(start)': function() {
-    annyang.pause();
-    annyang.removeCommands();
-    annyang.addCommands(commands);
-    annyang.resume();
-    document.getElementById("#resultplace").innerHTML = "Resumed";
-  }
+    var commands2 = {
+        //this is for the pause function only!
+        '(wake up)(resume)(aubry wakeup)(start)': function() {
+            annyang.pause();
+            annyang.removeCommands();
+            annyang.addCommands(commands);
+            annyang.resume();
+            document.getElementById("#resultplace").innerHTML = "Resumed";
+        }
 
 
 
 
-}
+    }
     // take our list of commands and stick them all in
     annyang.addCommands(commands);
 }
