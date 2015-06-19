@@ -4,7 +4,6 @@
     "requireLeftStickedOperators": [","],
     "disallowImplicitTypeConversion": ["string", "boolean"],
     "disallowKeywords": ["with"],
-    "disallowMultipleLineBreaks": true,
     "disallowKeywordsOnNewLine": ["else"],
     "disallowMixedSpacesAndTabs": true,
     "validateIndentation": 4
