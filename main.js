@@ -37,6 +37,11 @@ var actions = {
         speak(d6);
         document.getElementById("#resultplace").innerHTML = d6;
     },
+    diceroll1: function (diceroll) {
+        var diceroll2 = Math.floor(Math.random() * diceroll);
+        speak(diceroll2);
+        document.getElementById("#resultplace").innerHTML = diceroll2;
+    },
     wolfram: function(term) {
         $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
             speak(wolfram__);
@@ -115,6 +120,7 @@ if (annyang) {
         'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
+        'Roll a d*diceroll' : actions.diceroll1,
 
     };
     var commands2 = {
