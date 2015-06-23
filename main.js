@@ -31,7 +31,13 @@ var actions = {
         speak(d20);
         document.getElementById("#resultplace").innerHTML = d20;
     },
-
+reminder: function(term) {
+    function save_reminder(){
+        var info = term;
+        localStorage.setItem("Rinfo", info);
+    }
+        var firstname = localStorage.getItem("Rinfo");
+},
     d6: function () {
         var d6 = Math.floor(Math.random() * 6);
         speak(d6);
@@ -121,6 +127,7 @@ if (annyang) {
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
         'Roll a dice  *diceroll' : actions.diceroll1,
+        'remember *term' actions.reminder,
 
     };
     var commands2 = {
