@@ -120,7 +120,7 @@ if (annyang) {
         'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
-        'Roll a d*diceroll' : actions.diceroll1,
+        'Roll a dice  *diceroll' : actions.diceroll1,
 
     };
     var commands2 = {
