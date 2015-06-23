@@ -32,7 +32,7 @@ var actions = {
         document.getElementById("#resultplace").innerHTML = d20;
     },
 reminder: function(term) {
-    function data(){
+    function remindData(){
         var info = term;
         localStorage.setItem("Rinfo", info);
     }
@@ -130,8 +130,10 @@ if (annyang) {
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
         'Roll a dice  *diceroll' : actions.diceroll1,
-        'remember (for me) *term' actions.reminder,
-        'what did i ask you to remeber' : actions.remeberCommand,
+        'remember (for me) *term' : actions.reminder,
+        'what did I ask you to remeber' : actions.remeberCommand,
+        'testing' : speak("yes"),
+
 
     };
     var commands2 = {
