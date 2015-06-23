@@ -132,7 +132,7 @@ if (annyang) {
         'Roll a dice  *diceroll' : actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
-        'testing' : speak("yes"),
+        
 
 
     };
