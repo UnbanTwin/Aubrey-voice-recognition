@@ -37,6 +37,7 @@ reminder: function(term) {
         localStorage.setItem("Rinfo", info);
     }
         var rememberThing = localStorage.getItem("Rinfo");
+        speak('rembered')
 },
 remeberCommand: function() {
     speak("you asked me to remeber " + reminder.rememberThing)
@@ -132,7 +133,7 @@ if (annyang) {
         'Roll a dice  *diceroll' : actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
-        
+
 
 
     };
