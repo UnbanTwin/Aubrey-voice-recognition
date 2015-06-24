@@ -37,7 +37,7 @@ reminder: function(term) {
         localStorage.setItem("Rinfo", info);
     }
         var rememberThing = localStorage.getItem("Rinfo");
-        speak('rembered')
+        speak('Saved to memory')
 },
 remeberCommand: function() {
     speak("you asked me to remeber " + reminder.rememberThing)
