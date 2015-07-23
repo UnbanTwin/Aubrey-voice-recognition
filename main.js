@@ -72,8 +72,10 @@ remeberCommand: function() {
 
     },
     howu: function () {
-        speak("I'm good");
-        document.getElementById("#resultplace").innerHTML = "I'm good, thank you";
+        _mood = ['good', 'bad'];
+        mood = _mood[Math.floor(Math.random() * 2)];
+        speak(mood);
+        document.getElementById("#resultplace").innerHTML = mood;
 
 
     },
