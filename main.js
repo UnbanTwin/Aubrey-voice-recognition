@@ -1,4 +1,5 @@
-var mood = "Good";
+_mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
+mood = _mood[Math.floor(Math.random() * 7)];
 
 //change this if we have longer commands.
 annyang.start({continuous: false});
@@ -92,11 +93,11 @@ var actions = {
         else {}
     },
 
-    function mood() {
+    mood: function() {
         _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
         mood = _mood[Math.floor(Math.random() * 7)];
 
-    }
+    },
 
     howu: function () {
 
