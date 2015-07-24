@@ -31,17 +31,17 @@ var actions = {
         speak(d20);
         document.getElementById("#resultplace").innerHTML = d20;
     },
-reminder: function(term) {
-    function remindData(){
-        var info = term;
-        localStorage.setItem("Rinfo", info);
-    }
+    reminder: function(term) {
+        function remindData(){
+            var info = term;
+            localStorage.setItem("Rinfo", info);
+        }
         var rememberThing = localStorage.getItem("Rinfo");
         speak('Saved to my memory')
-},
-remeberCommand: function() {
-    speak("you asked me to remeber " + reminder.rememberThing)
-},
+    },
+    remeberCommand: function() {
+        speak("you asked me to remeber " + reminder.rememberThing)
+    },
     d6: function () {
         var d6 = Math.floor(Math.random() * 6);
         speak(d6);
@@ -71,18 +71,33 @@ remeberCommand: function() {
         });
 
     },
+    badAsk: function() {
+        if (mood == 'not very good' || mood == 'iffy') {
+            _askBad = ['its not about me', 'nothing'];
+            askBad = _askBad[Math.floor(Math.random() * 2)];
+            speak(askBad);
+            document.getElementById("#resultplace").innerHTML = askBad;
+        }
+        else {}
+    },
     howu: function () {
-        _mood = ['good', 'bad'];
-        mood = _mood[Math.floor(Math.random() * 2)];
+        _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
+        mood = _mood[Math.floor(Math.random() * 7)];
         speak(mood);
         document.getElementById("#resultplace").innerHTML = mood;
+
 
 
     },
 
 
+};
 
-}
+
+
+
+
+
 
 
 
@@ -135,6 +150,7 @@ if (annyang) {
         'Roll a dice  *diceroll' : actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
+        'whats (wrong) (up)' :actions.badAsk,
 
 
 
