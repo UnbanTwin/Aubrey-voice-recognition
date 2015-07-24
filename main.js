@@ -91,9 +91,15 @@ var actions = {
         }
         else {}
     },
-    howu: function () {
+
+    function mood() {
         _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
         mood = _mood[Math.floor(Math.random() * 7)];
+
+    }
+
+    howu: function () {
+
         speak(mood);
         document.getElementById("#resultplace").innerHTML = mood;
 
@@ -185,3 +191,8 @@ if (annyang) {
     // take our list of commands and stick them all in
     annyang.addCommands(commands);
 }
+
+window.setInterval(function() {
+    mood()
+
+}, 60000);
