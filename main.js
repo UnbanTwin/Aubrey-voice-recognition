@@ -1,3 +1,5 @@
+var mood = "Good";
+
 //change this if we have longer commands.
 annyang.start({continuous: false});
 
@@ -21,10 +23,19 @@ var actions = {
     youtube: function (term) {
         window.location.href = 'https://www.youtube.com/results?search_query='+term;
     },
+    youtube: function (term) {
+        speak(term)
+    },
 
 
     google: function (term) {
-        window.location.href = 'https://www.google.com/#q='+term;
+        if (mood == 'iffy' || mood == "not very good") {
+            speak("no")
+            document.getElementById('#resultplace').innerHTML = "no";
+        }
+        else {
+            window.location.href = 'https://www.google.com/#q='+term;
+        }
     },
     d20: function () {
         var d20 = Math.floor(Math.random() * 20);
@@ -118,7 +129,7 @@ if (annyang) {
             document.getElementById("#resultplace").innerHTML = "hello ";
         },
 
-        '(Who made you)(Who created you)': function() {
+        '(Who made you)(Who created you) (who is your creator) ': function() {
             speak('sam bolton');
             document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
@@ -131,6 +142,7 @@ if (annyang) {
             speak('good');
             document.getElementById("#resultplace").innerHTML = "good";
         },
+
         '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
             annyang.pause();
             annyang.removeCommands();
@@ -147,10 +159,11 @@ if (annyang) {
         'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
-        'Roll a dice  *diceroll' : actions.diceroll1,
+        'Roll a *diceroll dice' : actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
         'whats (wrong) (up)' :actions.badAsk,
+        'say *term hi' : actions.test
 
 
 
