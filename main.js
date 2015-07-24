@@ -163,13 +163,13 @@ if (annyang) {
         '(hey aubrey can you) (can you) google *term': actions.google,
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
-        'What is *term': actions.wolfram,
+    //    'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
         'Roll a *diceroll dice' : actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
-        'whats (wrong) (up)' :actions.badAsk,
+        '(whats wrong) (whats up)(what is up)' :actions.badAsk,
         'say *term hi' : actions.test
 
 
@@ -194,6 +194,6 @@ if (annyang) {
 }
 
 window.setInterval(function() {
-    mood()
+    actions.mood()
 
 }, 60000);
