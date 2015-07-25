@@ -22,7 +22,13 @@ function speak (phrase) {
 var actions = {
 
     youtube: function (term) {
-        window.location.href = 'https://www.youtube.com/results?search_query='+term;
+        if (mood == 'iffy' || mood == "not very good") {
+            speak("no")
+            document.getElementById('#resultplace').innerHTML = "no";
+        }
+        else {
+            window.location.href = 'https://www.youtube.com/results?search_query='+term;
+        }
     },
     youtube: function (term) {
         speak(term)
@@ -60,53 +66,59 @@ var actions = {
         document.getElementById("#resultplace").innerHTML = d6;
     },
     diceroll1: function (diceroll) {
+        if (mood == 'iffy' || mood == "not very good") {
+            speak("no")
+            document.getElementById('#resultplace').innerHTML = "no";
+        }
+        else {}
         var diceroll2 = Math.floor(Math.random() * diceroll);
         speak(diceroll2);
         document.getElementById("#resultplace").innerHTML = diceroll2;
-    },
-    wolfram: function(term) {
-        $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
-            speak(wolfram__);
-        };
-        //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
-        //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
-        //speak(wolfram_);
-    },
-    weather: function (term) {
-        $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
-            speak(theweather.temp);
+    }
+},
+wolfram: function(term) {
+    $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
+        speak(wolfram__);
+    };
+    //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
+    //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
+    //speak(wolfram_);
+},
+weather: function (term) {
+    $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
+        speak(theweather.temp);
 
 
 
 
 
-        });
+    });
 
-    },
-    badAsk: function() {
-        if (mood == 'not very good' || mood == 'iffy') {
-            _askBad = ['its not about me', 'nothing'];
-            askBad = _askBad[Math.floor(Math.random() * 2)];
-            speak(askBad);
-            document.getElementById("#resultplace").innerHTML = askBad;
-        }
-        else {}
-    },
+},
+badAsk: function() {
+    if (mood == 'not very good' || mood == 'iffy') {
+        _askBad = ['its not about me', 'nothing'];
+        askBad = _askBad[Math.floor(Math.random() * 2)];
+        speak(askBad);
+        document.getElementById("#resultplace").innerHTML = askBad;
+    }
+    else {}
+},
 
-    mood: function() {
-        _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
-        mood = _mood[Math.floor(Math.random() * 7)];
+mood: function() {
+    _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
+    mood = _mood[Math.floor(Math.random() * 7)];
 
-    },
+},
 
-    howu: function () {
+howu: function () {
 
-        speak(mood);
-        document.getElementById("#resultplace").innerHTML = mood;
+    speak(mood);
+    document.getElementById("#resultplace").innerHTML = mood;
 
 
 
-    },
+},
 
 
 };
@@ -151,11 +163,17 @@ if (annyang) {
         },
 
         '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
-            annyang.pause();
-            annyang.removeCommands();
-            annyang.addCommands(commands2);
-            annyang.resume();
-            document.getElementById("#resultplace").innerHTML = "Paused";
+            if (mood == 'iffy' || mood == "not very good") {
+                speak("no")
+                document.getElementById('#resultplace').innerHTML = "no";
+            }
+            else {
+                annyang.pause();
+                annyang.removeCommands();
+                annyang.addCommands(commands2);
+                annyang.resume();
+                document.getElementById("#resultplace").innerHTML = "Paused";
+            }
         },
 
         '(hey aubrey can you) (can you) youtube *term': actions.youtube,
@@ -163,13 +181,13 @@ if (annyang) {
         '(hey aubrey can you) (can you) google *term': actions.google,
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
-    //    'What is *term': actions.wolfram,
+        //    'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
         'Roll a *diceroll dice' : actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
-        '(whats wrong) (whats up)(what is up)' :actions.badAsk,
+        '(whats wrong) (whats up)(what is up)' : actions.badAsk,
         'say *term hi' : actions.test
 
 
