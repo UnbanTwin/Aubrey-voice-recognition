@@ -74,8 +74,8 @@ var actions = {
         var diceroll2 = Math.floor(Math.random() * diceroll);
         speak(diceroll2);
         document.getElementById("#resultplace").innerHTML = diceroll2;
-    }
-},
+    },
+
 wolfram: function(term) {
     $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
         speak(wolfram__);
@@ -188,7 +188,7 @@ if (annyang) {
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
-        'say *term hi' : actions.test
+
 
 
 
