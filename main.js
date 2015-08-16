@@ -58,8 +58,15 @@ var actions = {
     testcode: function() {;
 
         newcommand = prompt("Wanted code");
-        eval(newcommand);
-        //speak("hi");
+        if (newcommand.indexOf("document.getElementById") >= 0) {
+            alert("Not allowed");
+
+
+        }
+
+        else {
+            eval(newcommand);
+        }
 
 
     },
