@@ -1,3 +1,6 @@
+
+var brain =["hi",];
+
 _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
 mood = _mood[Math.floor(Math.random() * 7)];
 
@@ -10,12 +13,12 @@ function save_data(){
 }
 var firstname = localStorage.getItem("fname");
 
-annyang.addCallback('resultNoMatch', function(){document.getElementById("#resultplace").innerHTML = "I dont know what you mean.";});
+annyang.addCallback('resultNoMatch', function(){document.getElementById("#resultplace").innerHTML = "Say that again.";});
 function speak (phrase) {
     var worte = new SpeechSynthesisUtterance(phrase);
     worte.lang = "en-GB";
     window.speechSynthesis.speak(worte);
-}
+};
 
 // Just a list of functions that anyone can call
 // you can call these in the console by typing actions.YourFunctioName()
@@ -30,9 +33,9 @@ var actions = {
             window.location.href = 'https://www.youtube.com/results?search_query='+term;
         }
     },
-    youtube: function (term) {
-        speak(term)
-    },
+    //youtube: function (term) {
+    //    speak(term)
+    //},
 
 
     google: function (term) {
@@ -46,8 +49,19 @@ var actions = {
     },
     d20: function () {
         var d20 = Math.floor(Math.random() * 20);
+
+
+
         speak(d20);
         document.getElementById("#resultplace").innerHTML = d20;
+    },
+    testcode: function() {;
+
+        newcommand = prompt("Wanted code");
+        eval(newcommand);
+        //speak("hi");
+
+
     },
     reminder: function(term) {
         function remindData(){
@@ -76,49 +90,49 @@ var actions = {
         document.getElementById("#resultplace").innerHTML = diceroll2;
     },
 
-wolfram: function(term) {
-    $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
-        speak(wolfram__);
-    };
-    //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
-    //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
-    //speak(wolfram_);
-},
-weather: function (term) {
-    $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
-        speak(theweather.temp);
+    wolfram: function(term) {
+        $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
+            speak(wolfram__);
+        };
+        //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
+        //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
+        //speak(wolfram_);
+    },
+    weather: function (term) {
+        $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
+            speak(theweather.temp);
 
 
 
 
 
-    });
+        });
 
-},
-badAsk: function() {
-    if (mood == 'not very good' || mood == 'iffy') {
-        _askBad = ['its not about me', 'nothing'];
-        askBad = _askBad[Math.floor(Math.random() * 2)];
-        speak(askBad);
-        document.getElementById("#resultplace").innerHTML = askBad;
-    }
-    else {}
-},
+    },
+    badAsk: function() {
+        if (mood == 'not very good' || mood == 'iffy') {
+            _askBad = ['its not about me', 'nothing'];
+            askBad = _askBad[Math.floor(Math.random() * 2)];
+            speak(askBad);
+            document.getElementById("#resultplace").innerHTML = askBad;
+        }
+        else {}
+    },
 
-mood: function() {
-    _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
-    mood = _mood[Math.floor(Math.random() * 7)];
+    mood: function() {
+        _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
+        mood = _mood[Math.floor(Math.random() * 7)];
 
-},
+    },
 
-howu: function () {
+    howu: function () {
 
-    speak(mood);
-    document.getElementById("#resultplace").innerHTML = mood;
+        speak(mood);
+        document.getElementById("#resultplace").innerHTML = mood;
 
 
 
-},
+    },
 
 
 };
@@ -177,17 +191,18 @@ if (annyang) {
         },
 
         '(hey aubrey can you) (can you) youtube *term': actions.youtube,
-        'search *term': actions.search,
+        '(hey aubrey can you) (can you) search *term': actions.google,
         '(hey aubrey can you) (can you) google *term': actions.google,
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
         //    'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(How are you) (you good) (are you alright)': actions.howu,
-        'Roll a *diceroll dice' : actions.diceroll1,
+        'Roll a *diceroll' : actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
+        'Run code' : actions.testcode,
 
 
 

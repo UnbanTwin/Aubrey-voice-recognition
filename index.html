@@ -1,41 +1,31 @@
 <style>
-
 body {
-  background-image: url("background.png");
-
-
+    background-image: url("background.png");
 }
-
 #icona {
-  text-align: center;
-  height: 50px;
-  margin-top: 180px;
-
+    text-align: center;
+    height: 50px;
+    margin-top: 180px;
 }
-
 .drag {
-  background-color: black;
-  height: 100px;
-  width: 360px;
-  color: white;
-  outline: #00FF00 dotted thick;
-
+    background-color: black;
+    height: 100px;
+    width: 360px;
+    color: white;
+    outline: #00FF00 dotted thick;
 }
 #commands {
-  background-color: black;
-  height: 250px;
-  width: 360px;
-  color: white;
-  outline: #00FF00 dotted thick;
-
+    background-color: black;
+    height: 250px;
+    width: 360px;
+    color: white;
+    outline: #00FF00 dotted thick;
 }
-
-
 </style>
 
 <div id="icona">
 
-<img src="aubrey-gif1.gif" width="300px" height="300px"/>
+    <img src="aubrey-gif1.gif" width="300px" height="300px"/>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -45,32 +35,28 @@ body {
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 <script type="text/javascript">
-    $(function() {
-        $( ".drag" ).draggable();
-
-    });
-
-
-
+$(function() {
+    $( ".drag" ).draggable();
+});
 </script>
 
 <div class="drag">
 
-<h2>Output: <div id="#resultplace">Hello I am aubrey.</div></h2>
-<input></input><button onlick="" id="useributton">send</button>
+    <h2>Output: <div id="#resultplace">Hello I am aubrey.</div></h2>
+    <input></input><button onlick="" id="useributton">send</button>
 
 </div>
 <div class="drag" id="commands">
 
-<h2>Commands:</h2>
-<ul>
-<li>Hello.</li>
-<li>who made you.</li>
-<li>Google... something.</li>
-<li>Youtube... something</li>
-<li>Roll a d(number here).</li>
-<li>How are you?</li>
-<li>Hey aubrey</li>
-<li>Pause/Resume</li>
-</ul>
+    <h2>Commands:</h2>
+    <ul>
+        <li>Hello.</li>
+        <li>who made you.</li>
+        <li>Google... something.</li>
+        <li>Youtube... something</li>
+        <li>Roll a d(number here).</li>
+        <li>How are you?</li>
+        <li>Hey aubrey</li>
+        <li>Pause/Resume</li>
+    </ul>
 </div>
