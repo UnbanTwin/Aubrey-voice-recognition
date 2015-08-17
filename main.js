@@ -77,6 +77,8 @@ var actions = {
     },
     reminder: function(term) {
         localStorage.setItem("reminder", term);
+        speak('Saved to my memory')
+        document.getElementById('#resultplace').innerHTML = "Saved to my memory";
         /*        function remindData(){
         var info = term;
         localStorage.setItem("Rinfo", info);
@@ -87,6 +89,7 @@ var actions = {
 remeberCommand: function() {
     rememberThing = localStorage.getItem("reminder");
     speak("you asked me to remeber " + rememberThing)
+    document.getElementById('#resultplace').innerHTML = "you asked me to remeber " + rememberThing;
 },
 d6: function () {
     var d6 = Math.floor(Math.random() * 6);
