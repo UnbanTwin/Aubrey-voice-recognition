@@ -77,78 +77,78 @@ var actions = {
     },
     reminder: function(term) {
         localStorage.setItem("reminder", term);
-/*        function remindData(){
-            var info = term;
-            localStorage.setItem("Rinfo", info);
-        }
-        rememberThing = localStorage.getItem("Rinfo");
-        speak('Saved to my memory')*/
-    },
-    remeberCommand: function() {
-        rememberThing = localStorage.getItem("reminder");
-        speak("you asked me to remeber " + rememberThing)
-    },
-    d6: function () {
-        var d6 = Math.floor(Math.random() * 6);
-        speak(d6);
-        document.getElementById("#resultplace").innerHTML = d6;
-    },
-    diceroll1: function (term) {
+        /*        function remindData(){
+        var info = term;
+        localStorage.setItem("Rinfo", info);
+    }
+    rememberThing = localStorage.getItem("Rinfo");
+    speak('Saved to my memory')*/
+},
+remeberCommand: function() {
+    rememberThing = localStorage.getItem("reminder");
+    speak("you asked me to remeber " + rememberThing)
+},
+d6: function () {
+    var d6 = Math.floor(Math.random() * 6);
+    speak(d6);
+    document.getElementById("#resultplace").innerHTML = d6;
+},
+diceroll1: function (term) {
 
-        if (mood == 'iffy' || mood == "not very good") {
-            speak("no")
-            document.getElementById('#resultplace').innerHTML = "no";
-        }
-        else {
-            var diceroll2 = Math.floor(Math.random() * term);
-            speak(diceroll2);
-            document.getElementById("#resultplace").innerHTML = diceroll2;
-        }
-    },
+    if (mood == 'iffy' || mood == "not very good") {
+        speak("no")
+        document.getElementById('#resultplace').innerHTML = "no";
+    }
+    else {
+        var diceroll2 = Math.floor(Math.random() * term);
+        speak(diceroll2);
+        document.getElementById("#resultplace").innerHTML = diceroll2;
+    }
+},
 
-    wolfram: function(term) {
-        $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
-            speak(wolfram__);
-        };
-        //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
-        //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
-        //speak(wolfram_);
-    },
-    weather: function (term) {
-        $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
-            speak(theweather.temp);
-
-
+wolfram: function(term) {
+    $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
+        speak(wolfram__);
+    };
+    //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
+    //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
+    //speak(wolfram_);
+},
+weather: function (term) {
+    $.get('https://api.openweathermap.org/data/2.5/weather?q='+term, function (theweather) {
+        speak(theweather.temp);
 
 
 
-        });
-
-    },
-    badAsk: function() {
-        if (mood == 'not very good' || mood == 'iffy') {
-            _askBad = ['its not about me', 'nothing'];
-            askBad = _askBad[Math.floor(Math.random() * 2)];
-            speak(askBad);
-            document.getElementById("#resultplace").innerHTML = askBad;
-        }
-        else {}
-    },
-
-    mood: function() {
-        _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
-        mood = _mood[Math.floor(Math.random() * 7)];
-
-    },
-
-    howu: function () {
-
-        speak(mood);
-        document.getElementById("#resultplace").innerHTML = mood;
 
 
+    });
 
-    },
+},
+badAsk: function() {
+    if (mood == 'not very good' || mood == 'iffy') {
+        _askBad = ['its not about me', 'nothing'];
+        askBad = _askBad[Math.floor(Math.random() * 2)];
+        speak(askBad);
+        document.getElementById("#resultplace").innerHTML = askBad;
+    }
+    else {}
+},
+
+mood: function() {
+    _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'Good, thank you', 'Ready to Rock',];
+    mood = _mood[Math.floor(Math.random() * 7)];
+
+},
+
+howu: function () {
+
+    speak(mood);
+    document.getElementById("#resultplace").innerHTML = mood;
+
+
+
+},
 
 
 };
