@@ -5,7 +5,7 @@ _mood = ['very good, thank you', 'not very good', 'fair', 'iffy', 'Awesome!', 'G
 mood = _mood[Math.floor(Math.random() * 7)];
 
 //change this if we have longer commands.
-annyang.start({continuous: false});
+annyang.start({continuous: true});
 
 function save_data(){
     var input = document.getElementById("fname");
@@ -55,7 +55,7 @@ var actions = {
         speak(d20);
         document.getElementById("#resultplace").innerHTML = d20;
     },
-    testcode: function() {;
+    testcode: function() {
 
         newcommand = prompt("Wanted code");
         if (newcommand.indexOf("document.getElementById") >= 0) {
@@ -91,15 +91,17 @@ var actions = {
         speak(d6);
         document.getElementById("#resultplace").innerHTML = d6;
     },
-    diceroll1: function (diceroll) {
+    diceroll1: function (term) {
+
         if (mood == 'iffy' || mood == "not very good") {
             speak("no")
             document.getElementById('#resultplace').innerHTML = "no";
         }
-        else {}
-        var diceroll2 = Math.floor(Math.random() * diceroll);
-        speak(diceroll2);
-        document.getElementById("#resultplace").innerHTML = diceroll2;
+        else {
+            var diceroll2 = Math.floor(Math.random() * term);
+            speak(diceroll2);
+            document.getElementById("#resultplace").innerHTML = diceroll2;
+        }
     },
 
     wolfram: function(term) {
@@ -209,12 +211,12 @@ if (annyang) {
         'roll a d6': actions.d6,
         //    'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
-        '(How are you) (you good) (are you alright)': actions.howu,
-        'Roll a *diceroll' : actions.diceroll1,
+        '(how are you) (you good) (are you alright)': actions.howu,
+        'roll *term': actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'what did I ask you to remeber' : actions.remeberCommand,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
-        'Run code' : actions.testcode,
+        'code test' : actions.testcode,
 
 
 
