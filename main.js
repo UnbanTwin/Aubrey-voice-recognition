@@ -214,7 +214,7 @@ if (annyang) {
         //    'What is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(how are you) (you good) (are you alright)': actions.howu,
-        'roll *term': actions.diceroll1,
+        'roll a d *term': actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
         'list reminders' : actions.remeberCommand,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
