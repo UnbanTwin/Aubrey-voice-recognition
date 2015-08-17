@@ -63,6 +63,11 @@ var actions = {
 
 
         }
+        else if (newcommand.indexOf("document.getItem") >= 0) {
+            alert("Not allowed");
+
+
+        }
 
         else {
             eval(newcommand);
