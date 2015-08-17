@@ -76,15 +76,17 @@ var actions = {
 
     },
     reminder: function(term) {
-        function remindData(){
+        localStorage.setItem("reminder", term);
+/*        function remindData(){
             var info = term;
             localStorage.setItem("Rinfo", info);
         }
-        var rememberThing = localStorage.getItem("Rinfo");
-        speak('Saved to my memory')
+        rememberThing = localStorage.getItem("Rinfo");
+        speak('Saved to my memory')*/
     },
     remeberCommand: function() {
-        speak("you asked me to remeber " + reminder.rememberThing)
+        rememberThing = localStorage.getItem("reminder");
+        speak("you asked me to remeber " + rememberThing)
     },
     d6: function () {
         var d6 = Math.floor(Math.random() * 6);
@@ -214,7 +216,7 @@ if (annyang) {
         '(how are you) (you good) (are you alright)': actions.howu,
         'roll *term': actions.diceroll1,
         'remember (for me) *term' : actions.reminder,
-        'what did I ask you to remeber' : actions.remeberCommand,
+        'list reminders' : actions.remeberCommand,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
         'code test' : actions.testcode,
 
