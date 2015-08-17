@@ -75,8 +75,9 @@ var actions = {
 
 
     },
-    reminder: function(term) {
-        localStorage.setItem("reminder", term);
+    reminder: function(term, ReminderName) {
+        localStorage.setItem(ReminderName, term);
+        RememberName = ReminderName;
         speak('Saved to my memory')
         document.getElementById('#resultplace').innerHTML = "Saved to my memory";
         /*        function remindData(){
@@ -87,15 +88,15 @@ var actions = {
     speak('Saved to my memory')*/
 },
 remeberCommand: function() {
-    rememberThing = localStorage.getItem("reminder");
+    //rememberThing = localStorage.getItem("reminder");
     //speak("you asked me to remeber " + rememberThing)
     //document.getElementById('#resultplace').innerHTML = "you asked me to remeber " + rememberThing;
     for(var i=0, len=localStorage.length; i<len; i++) {
-    var key = localStorage.key(i);
-    var value = localStorage[key];
-    speak("you asked me to remeber " value)
-    document.getElementById('#resultplace').innerHTML = key + " => " + value
-}
+        var key = localStorage.key(i);
+        var value = localStorage[key];
+        speak("you asked me to remeber " + value);
+        document.getElementById('#resultplace').innerHTML = key + " => " + value;
+    }
 },
 d6: function () {
     var d6 = Math.floor(Math.random() * 6);
@@ -224,7 +225,7 @@ if (annyang) {
         'what is the weather in *term': actions.weather,
         '(how are you) (you good) (are you alright)': actions.howu,
         'roll a d *term': actions.diceroll1,
-        'remember (for me) *term' : actions.reminder,
+        'remember (for me) *term *ReminderName' : actions.reminder,
         'list reminders' : actions.remeberCommand,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
         'code test' : actions.testcode,
