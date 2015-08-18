@@ -234,6 +234,7 @@ if (annyang) {
         'what is the weather in *term': actions.weather,
         '(how are you) (you good) (are you alright)': actions.howu,
         'roll a d *term': actions.diceroll1,
+        'Clear reminder(s)' : actions.RemoveReminders,
         'remember (for me) *term *ReminderName' : actions.reminder,
         'list reminders' : actions.remeberCommand,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
