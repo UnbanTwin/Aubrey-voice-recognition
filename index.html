@@ -21,11 +21,31 @@ body {
     color: white;
     outline: #00FF00 dotted thick;
 }
+#output {
+
+    margin-left: 32%;
+    margin-top: 5%;
+    background-color: black;
+    height: 140px;
+    width: 500px;
+    color: white;
+    outline: #00FF00 dotted thick;
+}
+@media only screen and (max-width: 479px){
+    #output { width: 90%; }
+}
 </style>
 
 <div id="icona">
 
     <img src="aubrey-gif1.gif" width="300px" height="300px"/>
+    <div class="drag" id="output">
+
+        <h2>Output: <div id="#resultplace">Hello I am aubrey.</div></h2>
+        <input></input><button onlick="" id="useributton">send</button>
+
+
+    </div>
 </div>
 <title>A.U.B.R.E.Y</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -40,12 +60,7 @@ $(function() {
 });
 </script>
 
-<div class="drag">
 
-    <h2>Output: <div id="#resultplace">Hello I am aubrey.</div></h2>
-    <input></input><button onlick="" id="useributton">send</button>
-
-</div>
 
 <div class="drag" id="commands">
 
