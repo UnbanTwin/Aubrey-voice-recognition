@@ -7,8 +7,9 @@ mood = _mood[Math.floor(Math.random() * 7)];
 //change this if we have longer commands.
 annyang.start({continuous: true});
 
-function save_data(){
-    var input = document.getElementById("fname");
+function save_name(){
+    console.log("hello");
+    var input = document.getElementById("#namebox");
     localStorage.setItem("fname", input.value);
 }
 var firstname = localStorage.getItem("fname");
@@ -202,8 +203,15 @@ if (annyang) {
             document.getElementById("#resultplace").innerHTML = "sam bolton";
         },
         '(hey aubrey)(aubrey) (ok aubrey)': function() {
-            speak('Ready, sir');
-            document.getElementById("#resultplace").innerHTML = "Ready, sir";
+            if (localStorage.getItem("fname") == null) {
+                speak('Ready, sir');
+                document.getElementById("#resultplace").innerHTML = "Ready, sir";
+            }
+            else {
+                speak('Ready,' + firstname);
+                document.getElementById("#resultplace").innerHTML = "Ready, " + firstname;
+
+            }
 
         },
         '(thats good) (that is good)': function() {
