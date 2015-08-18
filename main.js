@@ -106,6 +106,12 @@ d6: function () {
     speak(d6);
     document.getElementById("#resultplace").innerHTML = d6;
 },
+
+RemoveReminders: function () {
+    localStorage.clear();
+    speak("All reminders have been cleared")
+    document.getElementById('#resultplace').innerHTML = "All reminders have been cleared";
+},
 diceroll1: function (term) {
 
     if (mood == 'iffy' || mood == "not very good") {
