@@ -13,7 +13,7 @@ function save_name(){
     console.log("hello");
     var input = document.getElementById("#namebox");
     localStorage.setItem("fname", input.value);
-}
+};
 var firstname = localStorage.getItem("fname");
 
 annyang.addCallback('resultNoMatch', function(){document.getElementById("#resultplace").innerHTML = "Say that again.";});
