@@ -91,11 +91,14 @@ remeberCommand: function() {
     //rememberThing = localStorage.getItem("reminder");
     //speak("you asked me to remeber " + rememberThing)
     //document.getElementById('#resultplace').innerHTML = "you asked me to remeber " + rememberThing;
+    document.getElementById("#resultplace").innerHTML = "You asked me to remeber "
+    speak("you asked to me to remeber ")
     for(var i=0, len=localStorage.length; i<len; i++) {
         var key = localStorage.key(i);
         var value = localStorage[key];
-        speak("you asked me to remeber " + value);
-        document.getElementById('#resultplace').innerHTML = key + " => " + value;
+        speak(value + "and");
+        document.getElementById('#resultplace').innerHTML += " " + key + " => " + value + " ";
+        //document.write(key + " => " + value);
     }
 },
 d6: function () {
