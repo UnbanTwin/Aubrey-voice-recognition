@@ -7,6 +7,8 @@ mood = _mood[Math.floor(Math.random() * 7)];
 //change this if we have longer commands.
 annyang.start({continuous: true});
 
+
+
 function save_name(){
     console.log("hello");
     var input = document.getElementById("#namebox");
