@@ -172,7 +172,7 @@ var actions = {
     },
     badAsk: function() {
         if (mood == 'not very good' || mood == 'iffy') {
-            _askBad = ['its not about me', 'nothing'];
+            _askBad = ['its not about me', 'nothing of your concern'];
             askBad = _askBad[Math.floor(Math.random() * 2)];
             speak(askBad);
             document.getElementById("#resultplace").innerHTML = askBad;
