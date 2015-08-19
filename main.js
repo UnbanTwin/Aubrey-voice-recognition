@@ -78,30 +78,52 @@ var actions = {
 
 
     },
-    reminder: function(term, ReminderName) {
-        localStorage.setItem(ReminderName, term);
-        RememberName = ReminderName;
-        speak('Saved to my memory')
-        document.getElementById('#resultplace').innerHTML = "Saved to my memory";
-        /*        function remindData(){
-        var info = term;
-        localStorage.setItem("Rinfo", info);
-    }
-    rememberThing = localStorage.getItem("Rinfo");
-    speak('Saved to my memory')*/
+
+removeReminders: function () {
+    // set reminders to be an empty array, quickest way to clear it
+    localStorage.setItem('reminders', JSON.stringify([]));
+    speak("All reminders have been cleared")
+    document.getElementById('#resultplace').innerHTML = "All reminders have been cleared";
 },
-remeberCommand: function() {
-    //rememberThing = localStorage.getItem("reminder");
-    //speak("you asked me to remeber " + rememberThing)
-    //document.getElementById('#resultplace').innerHTML = "you asked me to remeber " + rememberThing;
-    document.getElementById("#resultplace").innerHTML = "You asked me to remeber "
-    speak("you asked to me to remeber ")
-    for(var i=0, len=localStorage.length; i<len; i++) {
-        var key = localStorage.key(i);
-        var value = localStorage[key];
-        speak(value + "and");
-        document.getElementById('#resultplace').innerHTML += " " + key + " => " + value + " ";
-        //document.write(key + " => " + value);
+addReminder: function(term) {
+    var item = localStorage.getItem('reminders');
+    if (item == null) {
+      // if we've never stored any reminder, so use an empty array string
+      item =  "[]";
+    }
+
+    // take our string item and parse it into a real array
+    var reminders = JSON.parse(item);
+    // push the new term onto the list
+    reminders.push(term);
+    // stringify the reminders and save them back in storage
+    localStorage.setItem('reminders', JSON.stringify(reminders));
+    
+    speak('Saved to my memory')
+    document.getElementById('#resultplace').innerHTML = "Saved to my memory";
+},
+listReminders: function() {
+    var item = localStorage.getItem('reminders');
+    if (item == null) {
+      // nothing has ever been stored before
+      // return so we don't do the rest of this function
+      return speak("No reminders");
+    }
+
+    var reminders = JSON.parse(item);
+
+    if(reminders.length == 0) {
+      // theres an empty array, but still no reminders
+      // return so we dont do the rest of this function
+      return speak("no reminders");
+    }
+
+    speak('your reminders are as follows');
+    for(var i=0; i < reminders.length; i++) {
+        speak(reminders[i]);
+
+        // array.join() sticks all the elements together seperated by a separator
+        document.getElementById('#resultplace').innerHTML = reminders.join(", ");
     }
 },
 d6: function () {
@@ -110,11 +132,6 @@ d6: function () {
     document.getElementById("#resultplace").innerHTML = d6;
 },
 
-RemoveReminders: function () {
-    localStorage.clear();
-    speak("All reminders have been cleared")
-    document.getElementById('#resultplace').innerHTML = "All reminders have been cleared";
-},
 diceroll1: function (term) {
 
     if (mood == 'iffy' || mood == "not very good") {
@@ -244,9 +261,9 @@ if (annyang) {
         'what is the weather in *term': actions.weather,
         '(how are you) (you good) (are you alright)': actions.howu,
         'roll a d *term': actions.diceroll1,
-        'Clear reminder(s)' : actions.RemoveReminders,
-        'remember (for me) *term *ReminderName' : actions.reminder,
-        'list reminders' : actions.remeberCommand,
+        'clear reminder(s)' : actions.removeReminders,
+        'remember (for me) *term' : actions.addReminder,
+        'list reminders' : actions.listReminders,
         '(whats wrong) (whats up)(what is up)' : actions.badAsk,
         'code test' : actions.testcode,
 
@@ -263,9 +280,6 @@ if (annyang) {
             annyang.resume();
             document.getElementById("#resultplace").innerHTML = "Resumed";
         }
-
-
-
 
     }
     // take our list of commands and stick them all in
