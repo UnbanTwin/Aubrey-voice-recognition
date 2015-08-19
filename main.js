@@ -121,7 +121,8 @@ var actions = {
         if(reminders.length == 0) {
             // theres an empty array, but still no reminders
             // return so we dont do the rest of this function
-            return speak("no reminders");
+            var listReminders = listRemindersOutput();
+            return listReminders;
         }
 
         speak('your reminders are as follows');
@@ -172,7 +173,7 @@ var actions = {
     },
     badAsk: function() {
         if (mood == 'not very good' || mood == 'iffy') {
-            _askBad = ['its not about me', 'nothing of your concern'];
+            _askBad = ['its not about me', 'nothing of your concerns'];
             askBad = _askBad[Math.floor(Math.random() * 2)];
             speak(askBad);
             document.getElementById("#resultplace").innerHTML = askBad;
