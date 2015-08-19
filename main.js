@@ -8,7 +8,10 @@ mood = _mood[Math.floor(Math.random() * 7)];
 annyang.start({continuous: true});
 
 
-
+function listRemindersOutput() {
+    speak("No reminders");
+    document.getElementById('#resultplace').innerHTML = "No reminders"
+};
 function save_name(){
     console.log("hello");
     var input = document.getElementById("#namebox");
@@ -102,12 +105,14 @@ var actions = {
         speak('Saved to my memory')
         document.getElementById('#resultplace').innerHTML = "Saved to my memory";
     },
+
     listReminders: function() {
         var item = localStorage.getItem('reminders');
         if (item == null) {
             // nothing has ever been stored before
             // return so we don't do the rest of this function
-            return speak("No reminders");
+            var listReminders = listRemindersOutput();
+            return listReminders;
 
         }
 
