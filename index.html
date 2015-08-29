@@ -9,10 +9,11 @@ body {
 }
 .drag {
     background-color: black;
-    height: 100px;
+    height: 135px;
     width: 360px;
     color: white;
     outline: #00FF00 dotted thick;
+
 }
 #commands {
     background-color: black;
@@ -20,15 +21,19 @@ body {
     width: 360px;
     color: white;
     outline: #00FF00 dotted thick;
+    
+
+
 }
 #output {
 
-    margin-left: 32%;
-    background-color: black;
-    height: 140px;
-    width: 500px;
+    margin-top: 20px;
+    margin-left: 38%;
+    text-align: center;
     color: white;
+    background-color: black;
     outline: #00FF00 dotted thick;
+    width: 350px;
 }
 #nameInput {
     margin-top: 20px;
@@ -59,7 +64,8 @@ body {
 <title>A.U.B.R.E.Y</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
-
+<script src="Weather/simpleweather.jquery.json"></script>
+<script src="Weather/jquery.simpleWeather.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
@@ -68,9 +74,10 @@ $(function() {
     $( ".drag" ).draggable();
 });
 </script>
-
-
-
+<div class="drag">
+    <div id="weather"></div>
+    <button class="js-geolocation" style="display: none;">Use Your Location</button>
+</div>
 <div class="drag" id="commands">
 
     <h2>Commands:</h2>
