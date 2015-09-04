@@ -16,11 +16,7 @@ $('.js-geolocation').on('click', function() {
   });
 });
 
-/*
-* Test Locations
-* Austin lat/long: 30.2676,-97.74298
-* Austin WOEID: 2357536
-*/
+
 $(document).ready(function() {
   loadWeather('Seattle',''); //@params location, woeid
 });
