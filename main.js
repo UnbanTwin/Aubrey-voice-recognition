@@ -263,8 +263,15 @@ if (annyang) {
     // Define the triggers for the commands
     var commands = {
         '(hello)(hi)(hey)': function() {
-            speak('hello ');
-            document.getElementById("#resultplace").innerHTML = "hello ";
+            if (localStorage.getItem("fname") == null) {
+                speak('hello sir');
+                document.getElementById("#resultplace").innerHTML = "Hello sir";
+            }
+            else {
+                speak('hello' + firstname);
+                document.getElementById("#resultplace").innerHTML = "Hello " + firstname;
+
+            }
         },
 
         '(Who made you)(Who created you) (who is your creator) ': function() {
