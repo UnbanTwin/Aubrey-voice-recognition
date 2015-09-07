@@ -196,9 +196,11 @@ var actions = {
     },
 
     wolfram: function(term) {
-        $.get("https://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5"), function(wolfram__) {
+        $.get("https://mysterious-anchorage-6238.herokuapp.com/?search="+term, function(wolfram__) {
+            console.log(wolfram__);
             speak(wolfram__);
-        };
+
+        });
         //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
         //var wolfram_ = "http://api.wolframalpha.com/v2/query?input="+term+"&appid=THYQLJ-3K45Y2A7W5";
         //speak(wolfram_);
@@ -314,7 +316,7 @@ if (annyang) {
         '(hey aubrey can you) (can you) google *term': actions.google,
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
-        //    'What is *term': actions.wolfram,
+        'tell me *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(how are you) (you good) (are you alright)': actions.howu,
         'roll a d *term': actions.diceroll1,
