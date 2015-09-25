@@ -196,9 +196,13 @@ var actions = {
     },
 
     wolfram: function(term) {
-        $.get("https://mysterious-anchorage-6238.herokuapp.com/?search="+term, function(wolfram__) {
-            console.log(wolfram__);
-            speak(wolfram__);
+        $.get("https://mysterious-anchorage-6238.herokuapp.com/?search="+term, function(data) {
+            for( var i = 0; i < data.length; i++) {
+                document.getElementById('#resultplace').innerHTML = "";
+            	document.getElementById('#resultplace').innerHTML += data[i].title;
+                document.getElementById('#resultplace').innerHTML += '<img src="' + data[i].subpods[0].image + '">';
+            }
+
 
         });
         //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
