@@ -198,21 +198,28 @@ var actions = {
     wolfram: function(term) {
         $.get("https://mysterious-anchorage-6238.herokuapp.com/?search="+term, function(data) {
             speak("printing results");
+            document.getElementById('#resultplace').innerHTML = "printing results";
             document.getElementById("wolfram").style.display = "block";
+
             for( var i = 0; i < data.length; i++) {
                 document.getElementById('wolfram').innerHTML = "";
-                console.log(data);
-                document.getElementById('wolfram').innerHTML += '<h1>' + data[i].title + " " +  '</h1>';
-                if (data[i].subpods[0].text == "") {
-                    document.getElementById('wolfram').innerHTML += '<img src="' + data[i].subpods[0].image + '">';
+
+
+                    document.getElementById('wolfram').innerHTML += '<h1>' + data[i].title + " " +  '</h1>';
+                    if (data[i].subpods[0].text == "") {
+                        document.getElementById('wolfram').innerHTML += '<img src="' + data[i].subpods[0].image + '">';
+                    }
+                    else if (data[i].title == "Illustration") {
+                        document.getElementById('wolfram').innerHTML += data[i].subpods[0].text + "<br>";
+                        document.getElementById('wolfram').innerHTML += '<img src="' + data[i].subpods[0].image + '">';
+                    }
+                    else {
+                        document.getElementById('wolfram').innerHTML += data[i].subpods[0].text;
+                    }
+
+
                 }
-                else {
-                    document.getElementById('wolfram').innerHTML += data[i].subpods[0].text;
-                }
-
-
-            }
-
+            
 
         });
         //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
