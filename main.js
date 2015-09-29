@@ -331,6 +331,7 @@ if (annyang) {
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
         'tell me (about) *term': actions.wolfram,
+        'what is *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(how are you) (you good) (are you alright)': actions.howu,
         'roll a d *term': actions.diceroll1,
