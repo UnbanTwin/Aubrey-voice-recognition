@@ -1,43 +1,43 @@
-
+document.getElementById("wolfram").style.display = "none";
 // Docs at http://simpleweatherjs.com
 // Docs at http://simpleweatherjs.com
 
 /* Does your browser support geolocation? */
 if ("geolocation" in navigator) {
-  $('.js-geolocation').show();
+    $('.js-geolocation').show();
 } else {
-  $('.js-geolocation').hide();
+    $('.js-geolocation').hide();
 }
 
 /* Where in the world are you? */
 $('.js-geolocation').on('click', function() {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
-  });
+    navigator.geolocation.getCurrentPosition(function(position) {
+        loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+    });
 });
 
 
 $(document).ready(function() {
-  loadWeather('Seattle',''); //@params location, woeid
+    loadWeather('Seattle',''); //@params location, woeid
 });
 
 function loadWeather(location, woeid) {
-  $.simpleWeather({
-    location: location,
-    woeid: woeid,
-    unit: 'f',
-    success: function(weather) {
-      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      html += '<li class="currently">'+weather.currently+'</li>';
-      html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
+    $.simpleWeather({
+        location: location,
+        woeid: woeid,
+        unit: 'f',
+        success: function(weather) {
+            html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+            html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+            html += '<li class="currently">'+weather.currently+'</li>';
+            html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
 
-      $("#weather").html(html);
-    },
-    error: function(error) {
-      $("#weather").html('<p>'+error+'</p>');
-    }
-  });
+            $("#weather").html(html);
+        },
+        error: function(error) {
+            $("#weather").html('<p>'+error+'</p>');
+        }
+    });
 }
 
 
@@ -197,10 +197,20 @@ var actions = {
 
     wolfram: function(term) {
         $.get("https://mysterious-anchorage-6238.herokuapp.com/?search="+term, function(data) {
+            speak("printing results");
+            document.getElementById("wolfram").style.display = "block";
             for( var i = 0; i < data.length; i++) {
-                document.getElementById('#resultplace').innerHTML = "";
-            	document.getElementById('#resultplace').innerHTML += data[i].title;
-                document.getElementById('#resultplace').innerHTML += '<img src="' + data[i].subpods[0].image + '">';
+                document.getElementById('wolfram').innerHTML = "";
+                console.log(data);
+                document.getElementById('wolfram').innerHTML += '<h1>' + data[i].title + " " +  '</h1>';
+                if (data[i].subpods[0].text == "") {
+                    document.getElementById('wolfram').innerHTML += '<img src="' + data[i].subpods[0].image + '">';
+                }
+                else {
+                    document.getElementById('wolfram').innerHTML += data[i].subpods[0].text;
+                }
+
+
             }
 
 
@@ -274,8 +284,8 @@ if (annyang) {
                 document.getElementById("#resultplace").innerHTML = "Hello sir";
             }
             else {
-                speak('hello' + firstname);
-                document.getElementById("#resultplace").innerHTML = "Hello " + firstname;
+                speak('hello, ' + firstname);
+                document.getElementById("#resultplace").innerHTML = "Hello, " + firstname;
 
             }
         },
@@ -320,7 +330,7 @@ if (annyang) {
         '(hey aubrey can you) (can you) google *term': actions.google,
         'roll a d20': actions.d20,
         'roll a d6': actions.d6,
-        'tell me *term': actions.wolfram,
+        'tell me (about) *term': actions.wolfram,
         'what is the weather in *term': actions.weather,
         '(how are you) (you good) (are you alright)': actions.howu,
         'roll a d *term': actions.diceroll1,
