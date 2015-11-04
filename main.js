@@ -97,12 +97,17 @@ var actions = {
         }
     },
     d20: function () {
-        var d20 = Math.floor(Math.random() * 20);
+        $.get("https://mysterious-anchorage-6238.herokuapp.com/dice?sides="+20, function(data) {
+            speak(data.result);
+            document.getElementById('#resultplace').innerHTML = data.result;
+
+        });
 
 
 
-        speak(d20);
-        document.getElementById("#resultplace").innerHTML = d20;
+
+        //speak(d20);
+        //document.getElementById("#resultplace").innerHTML = d20;
     },
     testcode: function() {
 
@@ -189,14 +194,16 @@ var actions = {
             document.getElementById('#resultplace').innerHTML = "no";
         }
         else {
-            var diceroll2 = Math.floor(Math.random() * term);
-            speak(diceroll2);
-            document.getElementById("#resultplace").innerHTML = diceroll2;
+            $.get("https://mysterious-anchorage-6238.herokuapp.com/dice?sides="+term, function(data) {
+                speak(data.result);
+                document.getElementById('#resultplace').innerHTML = data.result;
+
+            });
         }
     },
 
     wolfram: function(term) {
-        $.get("https://mysterious-anchorage-6238.herokuapp.com/?search="+term, function(data) {
+        $.get("https://mysterious-anchorage-6238.herokuapp.com/wolfram?search="+term, function(data) {
             speak("printing results");
             document.getElementById('#resultplace').innerHTML = "printing results";
             document.getElementById("wolfram").style.display = "block";
@@ -219,7 +226,7 @@ var actions = {
 
 
                 }
-            
+
 
         });
         //http://api.wolframalpha.com/v2/query?input=pi&appid=XXXX
