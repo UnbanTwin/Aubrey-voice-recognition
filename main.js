@@ -1,4 +1,4 @@
-document.getElementById("wolfram").style.display = "none";
+
 // Docs at http://simpleweatherjs.com
 // Docs at http://simpleweatherjs.com
 
@@ -75,8 +75,8 @@ var actions = {
 
     youtube: function (term) {
         if (mood == 'iffy' || mood == "not very good") {
-            speak("no")
-            document.getElementById('#resultplace').innerHTML = "no";
+            speak("No I dont feal like doing that")
+            document.getElementById('#resultplace').innerHTML = "No I dont feal like doing that";
         }
         else {
             window.location.href = 'https://www.youtube.com/results?search_query='+term;
@@ -89,8 +89,8 @@ var actions = {
 
     google: function (term) {
         if (mood == 'iffy' || mood == "not very good") {
-            speak("no")
-            document.getElementById('#resultplace').innerHTML = "no";
+            speak("No I dont feal like doing that")
+            document.getElementById('#resultplace').innerHTML = "No I dont feal like doing that";
         }
         else {
             window.location.href = 'https://www.google.com/#q='+term;
@@ -190,8 +190,8 @@ var actions = {
     diceroll1: function (term) {
 
         if (mood == 'iffy' || mood == "not very good") {
-            speak("no")
-            document.getElementById('#resultplace').innerHTML = "no";
+            speak("No I dont feal like doing that")
+            document.getElementById('#resultplace').innerHTML = "No I dont feal like doing that";
         }
         else {
             $.get("https://mysterious-anchorage-6238.herokuapp.com/dice?sides="+term, function(data) {
@@ -327,8 +327,8 @@ if (annyang) {
 
         '(shutup) (shut up) (pause) (be quit) (go to sleep) (stop)': function() {
             if (mood == 'iffy' || mood == "not very good") {
-                speak("no")
-                document.getElementById('#resultplace').innerHTML = "no";
+                speak("No I dont feal like doing that")
+                document.getElementById('#resultplace').innerHTML = "No I dont feal like doing that";
             }
             else {
                 annyang.pause();
@@ -378,3 +378,4 @@ window.setInterval(function() {
     actions.mood()
 
 }, 12000);
+document.getElementById("wolfram").style.display = "none";
