@@ -377,4 +377,4 @@ if (annyang) {
 window.setInterval(function() {
     actions.mood()
 
-}, 60000);
+}, 12000);
