@@ -284,7 +284,9 @@ function on() {
     speak("now listening")
 }
 
-
+$.get("http://aubrey-plugin-server.herokuapp.com/listScripts", function(data) {
+    console.dir(data);
+});
 
 // bind all of our spoken commands to the actions
 if (annyang) {
