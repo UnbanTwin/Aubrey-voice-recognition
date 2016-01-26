@@ -2,14 +2,14 @@
 // Docs at http://simpleweatherjs.com
 // Docs at http://simpleweatherjs.com
 
-/* Does your browser support geolocation? */
+/*
 if ("geolocation" in navigator) {
     $('.js-geolocation').show();
 } else {
     $('.js-geolocation').hide();
 }
 
-/* Where in the world are you? */
+
 $('.js-geolocation').on('click', function() {
     navigator.geolocation.getCurrentPosition(function(position) {
         loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
@@ -39,7 +39,7 @@ function loadWeather(location, woeid) {
         }
     });
 }
-
+*/
 
 
 var brain =["hi",];
@@ -283,10 +283,36 @@ var actions = {
 function on() {
     speak("now listening")
 }
+function AddItem(Text,Value)
+{
+    // Create an Option object
 
+
+    var opt = document.createElement("option");
+
+    // Add an Option object to Drop Down/List Box
+    document.getElementById("#dropDownList").options.add(opt);
+    // Assign text and value to Option object
+    opt.text = Text;
+    opt.value = Value;
+
+}
 $.get("http://aubrey-plugin-server.herokuapp.com/listScripts", function(data) {
-    console.dir(data);
+
+    $.each(data, function(i,name) {
+
+
+        for (i = 0; data.length - 1; i++) {
+
+            console.log(data[i].name);
+            AddItem(data[i].name,i);
+
+        }
+         //console.log(data[1].name);
+
+    });
 });
+
 
 // bind all of our spoken commands to the actions
 if (annyang) {
@@ -379,5 +405,5 @@ if (annyang) {
 window.setInterval(function() {
     actions.mood()
 
-}, 12000);
+}, 50000);
 document.getElementById("wolfram").style.display = "none";

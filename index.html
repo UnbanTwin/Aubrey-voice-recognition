@@ -1,8 +1,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
-    <script src="Weather/simpleweather.jquery.json"></script>
-    <script src="Weather/jquery.simpleWeather.min.js"></script>
+
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <title>A.U.B.R.E.Y</title>
@@ -71,57 +70,55 @@ $(function() {
 
     <table style="width:100%">
         <tr>
-            <td><div class="drag">
-                <div id="weather"></div>
-                <button class="js-geolocation" style="display: none;">Use Your Location</button>
-            </div></td>
-            <td><div class="drag" id="output">
-
-                <h2>Output: <div id="#resultplace">Hello I am aubrey.</div></h2>
-                <input></input><button onlick="" id="useributton">send</button>
-
-
-            </div></td>
-            <td><div class="drag" id="commands">
-
-                <h2>Commands:</h2>
-                <ul>
-                    <li>Hello.</li>
-                    <li>who made you.</li>
-                    <li>Google... something.</li>
-                    <li>Youtube... something</li>
-                    <li>Roll a d(number here).</li>
-                    <li>How are you?</li>
-                    <li>Hey aubrey.</li>
-                    <li>Remember (content)</li>
-                    <li>list reminders</li>
-                    <li>Clear reminder(s)</li>
-                    <li>Pause/Resume</li>
-                    <li>Tell me (about)/ what is</li>
-                </ul>
-            </div></td>
-        </tr>
-        <tr>
-            <td><div id="nameInput"><div id="nameInputText">Name:<input id="#namebox"></input><button onclick="save_name()" id="#nameStorage">Enter</button></div></div></td>
-            <td><img src="./img/aubrey-gif1.gif" width="300px" height="300px"/></td>
-            <td><div class="drag" id="wolfram">
-
-                <h2>Wolfram output:</h2>
-
-            </div></td>
-        </tr>
-        <tr>
             <td>
+                <div id="externalList" class="drag"><select id="#dropDownList"></select></div></td>
+                <td><div class="drag" id="output">
 
-            </td>
-            <td></td>
-            <td><div id="externalList" class="drag">test</div></td>
-        </tr>
-
-
+                    <h2>Output: <div id="#resultplace">Hello I am aubrey.</div></h2>
+                    <input></input><button onlick="" id="useributton">send</button>
 
 
+                </div></td>
+                <td><div class="drag" id="commands">
+
+                    <h2>Commands:</h2>
+                    <ul>
+                        <li>Hello.</li>
+                        <li>who made you.</li>
+                        <li>Google... something.</li>
+                        <li>Youtube... something</li>
+                        <li>Roll a d(number here).</li>
+                        <li>How are you?</li>
+                        <li>Hey aubrey.</li>
+                        <li>Remember (content)</li>
+                        <li>list reminders</li>
+                        <li>Clear reminder(s)</li>
+                        <li>Pause/Resume</li>
+                        <li>Tell me (about)/ what is</li>
+                    </ul>
+                </div></td>
+            </tr>
+            <tr>
+                <td><div id="nameInput"><div id="nameInputText">Name:<input id="#namebox"></input><button onclick="save_name()" id="#nameStorage">Enter</button></div></div></td>
+                <td><img src="./img/aubrey-gif1.gif" width="300px" height="300px"/></td>
+                <td><div class="drag" id="wolfram">
+
+                    <h2>Wolfram output:</h2>
+
+                </div></td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
 
 
-    </body>
-    <script src="main.js"></script>
+
+
+
+
+        </body>
+        <script src="main.js"></script>
