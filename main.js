@@ -305,14 +305,19 @@ $.get("http://aubrey-plugin-server.herokuapp.com/listScripts", function(data) {
         for (i = 0; data.length - 1; i++) {
 
             console.log(data[i].name);
-            AddItem(data[i].name,i);
+            AddItem(data[i].name,data[i].body);
 
         }
          //console.log(data[1].name);
 
     });
 });
+$("#EvalScript").on('click', function(){
+    console.log("I work");
 
+    eval($("option:selected").attr('value'));
+
+});
 
 // bind all of our spoken commands to the actions
 if (annyang) {
