@@ -302,20 +302,25 @@ $.get("http://aubrey-plugin-server.herokuapp.com/listScripts", function(data) {
     $.each(data, function(i,name) {
 
 
-        for (i = 0; data.length - 1; i++) {
+        //for (i = 0; data.length; i++) {
 
             console.log(data[i].name);
             AddItem(data[i].name,data[i].body);
 
-        }
+        //}
          //console.log(data[1].name);
 
     });
 });
 $("#EvalScript").on('click', function(){
     console.log("I work");
+    var plugin = {
+        name:$("option:selected").text(),
+        body:$("option:selected").attr('value')
 
-    eval($("option:selected").attr('value'));
+    };
+    aubreyDB.loadPlugin(plugin);
+
 
 });
 
@@ -405,7 +410,19 @@ if (annyang) {
     }
     // take our list of commands and stick them all in
     annyang.addCommands(commands);
-}
+};
+
+function aubreyAddPlugin(plugin) {
+    actions[plugin.actionName] = plugin.action;
+    var binding = {};
+    binding[plugin.command] = actions[plugin.actionName];
+    annyang.addCommands(binding);
+};
+
+
+
+
+aubreyDB.boot();
 
 window.setInterval(function() {
     actions.mood()

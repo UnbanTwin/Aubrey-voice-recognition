@@ -22,6 +22,8 @@ var aubreyDB = {
     },
 
     _evalPlugin:function(plugin){
+        eval(plugin.body);
+        aubreyAddPlugin(p);
         console.log("Loaded script " + plugin.body);
     },
 
@@ -56,10 +58,3 @@ var aubreyDB = {
     }
 
 };
-
-aubreyDB.boot();
-
-aubreyDB.loadPlugin({
-    name:"test random",
-    body:"var x = 'SPAGEET'"
-});
