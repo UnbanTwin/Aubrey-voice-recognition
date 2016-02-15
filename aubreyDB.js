@@ -1,3 +1,5 @@
+//localStorage persistance layer
+
 var aubreyDB = {
     DBname:"aubrey-plugins",
 
@@ -23,7 +25,7 @@ var aubreyDB = {
         console.log("Loaded script " + plugin.body);
     },
 
-
+    //------------------------public functions------------------------//
     boot:function(){
         if(!this._getItems()){
             this._init();
@@ -39,9 +41,10 @@ var aubreyDB = {
 
     loadPlugin:function(plugin){
         var items = this._getItems();
+        //Checks for duplicate plugins
         for (var i = 0; i < items.length;i++) {
             if(plugin.name == items[i].name){
-                console.log("Found duplicate plugin.");
+                console.log("Found duplicate plugin: " + plugin.name);
                 return;
             };
         }
