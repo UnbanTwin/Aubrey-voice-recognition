@@ -7,7 +7,7 @@ Aubrey is a web based modular voice recognizing digital assistant.
 
 
 ###Adding your own modules
-####visit:
+####Visit:
 
     aubrey-plugin-server.herokuapp.com
 
