@@ -297,7 +297,7 @@ function AddItem(Text,Value)
     opt.value = Value;
 
 }
-$.get("http://aubrey-plugin-server.herokuapp.com/listScripts", function(data) {
+$.get("https://aubrey-plugin-server.herokuapp.com/listScripts", function(data) {
 
     $.each(data, function(i,name) {
 

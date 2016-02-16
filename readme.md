@@ -19,3 +19,8 @@ Aubrey is a web based modular voice recognizing digital assistant.
             console.log("pizza is being ordered"); },
             command: "order (me a) pizza"
         };
+
+###Contributors
+wizardsambolton
+
+jackaperkins
